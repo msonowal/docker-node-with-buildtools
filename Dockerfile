@@ -11,9 +11,25 @@ RUN apk --no-cache --virtual build-dependencies add \
     g++ \
     && npm install \
     && apk del build-dependencies
+        
+RUN echo "Install NPM AND YARN and some essentials deps"
+RUN apk --no-cache add \
+    nodejs-npm \
+    curl \
+    yarn \
+    tar \
+    gzip \
+    bash \
+    git \
+    unzip \
+    wget \
+    openssh-client \
+    openssh \
+    sudo
 
-RUN echo "Install NPM AND YARN"
-RUN apk add --no-cache nodejs-npm yarn
+RUN node -v
+RUN npm -v
+RUN yarn -v
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
