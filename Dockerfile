@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:lts-alpine
 
 # --no-cache: download package index on-the-fly, no need to cleanup afterwards
 # --virtual: bundle packages, remove whole bundle at once, when done
